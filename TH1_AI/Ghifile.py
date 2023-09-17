@@ -14,7 +14,7 @@ def WriteF1():
             x = int(input("Nhap phan tu thu [%2d][%2d]: "%(i+1, j+1)))
             array[i].append(x)
 
-    f = open("./array2.txt ","w")
+    f = open("./TH1_AI/array2.txt ","w")
 
     for i in range (0,m):
         for j in range(0,n):
@@ -25,7 +25,7 @@ def WriteF1():
     return a
 
 def readFile1():
-    array = np.loadtxt('./array2.txt', dtype= int)
+    array = np.loadtxt('./TH1_AI/array2.txt', dtype= int)
     return array
 
 def WriteF2():
@@ -42,10 +42,9 @@ def WriteF2():
             x = int(input("Nhap phan tu thu [%2d][%2d]: "%(col + 1, j+1)))
             array[col].append(x)
             flag+=1
-        col+=1
-    
+        col+=1   
 
-    f = open("./array1.txt ","w")
+    f = open("./TH1_AI/array1.txt ","w")
 
     flag = 0
     col = 0
@@ -62,5 +61,9 @@ def WriteF2():
     return a
 
 def readFile2():
-    array = np.loadtxt('./array1.txt', dtype= int)
+    array = []
+    with open("./TH1_AI/array1.txt") as file:
+        for item in file:
+            item = item.split()
+            array.append(item)            
     return array

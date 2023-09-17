@@ -1,0 +1,32 @@
+import math
+from random import randint
+import numpy as np
+
+def check(n, array):
+    for i in array:
+        for j in i:
+            if j == n:
+                return False
+    return True
+def main():
+    print("Nhap so n:", end=" ")
+    n = int(input())
+    array = []
+    
+    #tao so
+    f = open("./TH1_AI/taci.txt ","w")
+    flag = []
+
+    for x in range(0,n):
+        flag.append([])
+        for i in range(0,n):
+            while True:
+                e = randint(0, n**2)
+                if check(e,flag) == True:
+                    flag[x].append(e)
+                    f.write(str(flag[x][i]) + "    ")
+                    break
+        f.write("\n")  
+    f.close  
+    print(flag)
+main()   
